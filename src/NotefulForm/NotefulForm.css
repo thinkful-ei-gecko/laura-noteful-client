@@ -1,5 +1,5 @@
 .Noteful-form {
-  background-color: #1d3656;
+  background-color: #3e7cce;
   color: #dedede;
   padding: 16px;
   max-width: 332px;
@@ -31,10 +31,10 @@
 }
 
 .Noteful-form button {
-  background-color: #010d1e;
+  background-color: #0d346b;
   border-radius: 4px;
   border: 0;
-  color: #cacaca;
+  color: #dedede;
   display: block;
   font-size: 18px;
   font-weight: bold;
