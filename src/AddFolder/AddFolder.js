@@ -12,7 +12,7 @@ export default class AddFolder extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const baseUrl = "http://localhost:9090";
+    const baseUrl = "https://fierce-stream-94043.herokuapp.com/";
     const folder = { name: e.target['folder-name'].value };
 
     fetch(`${baseUrl}/folders`, {

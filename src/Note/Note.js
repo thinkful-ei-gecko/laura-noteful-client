@@ -13,7 +13,7 @@ export default class Note extends React.Component {
 
   handleClickDelete = e => {
     e.preventDefault();
-    const baseUrl = "http://localhost:9090";
+    const baseUrl = "https://fierce-stream-94043.herokuapp.com/";
     const noteId = this.props.id;
 
     fetch(`${baseUrl}/notes/${noteId}`, {

@@ -20,7 +20,7 @@ class App extends Component {
     };
 
     componentDidMount() {
-        const baseUrl = "http://localhost:9090";
+        const baseUrl = "https://fierce-stream-94043.herokuapp.com/";
 
         Promise.all([
           fetch(`${baseUrl}/notes`),
