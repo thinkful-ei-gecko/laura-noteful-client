@@ -9,7 +9,7 @@ import AddFolder from '../AddFolder/AddFolder.js';
 import AddNote from '../AddNote/AddNote.js';
 import ApiContext from '../ApiContext.js';
 import NoteError from './NoteError.js';
-
+import config from '../config.js';
 import './App.css';
 
 
@@ -20,11 +20,10 @@ class App extends Component {
     };
 
     componentDidMount() {
-        const baseUrl = "https://fierce-stream-94043.herokuapp.com/";
 
         Promise.all([
-          fetch(`${baseUrl}/notes`),
-          fetch(`${baseUrl}/folders`)
+          fetch(`${config.API_BASE_URL}/notes`),
+          fetch(`${config.API_BASE_URL}/folders`)
         ])
           .then(([notesRes, foldersRes]) => {
             if (!notesRes.ok) { return notesRes.json().then(e => Promise.reject(e)) }

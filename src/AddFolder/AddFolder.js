@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import NotefulForm from '../NotefulForm/NotefulForm.js';
 import ApiContext from '../ApiContext.js';
+import config from '../config.js';
+
 import './AddFolder.css';
 
 export default class AddFolder extends Component {
@@ -12,10 +14,9 @@ export default class AddFolder extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const baseUrl = "https://fierce-stream-94043.herokuapp.com/";
     const folder = { name: e.target['folder-name'].value };
 
-    fetch(`${baseUrl}/folders`, {
+    fetch(`${config.API_BASE_URL}/folders`, {
       method: 'POST',
       headers: {'content-type': 'application/json' },
       body: JSON.stringify(folder),

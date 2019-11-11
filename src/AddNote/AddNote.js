@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import NotefulForm from '../NotefulForm/NotefulForm.js';
 import ApiContext from '../ApiContext.js';
+import config from '../config.js';
+
 import './AddNote.css';
 
 export default class AddNote extends Component {
@@ -11,7 +13,6 @@ export default class AddNote extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const baseUrl = "https://fierce-stream-94043.herokuapp.com/";
 
     const newNote = {
       name: e.target['note-name'].value,
@@ -19,7 +20,7 @@ export default class AddNote extends Component {
       folderId: e.target['note-folder-id'].value,
       modified: new Date(),
     }
-    fetch(`${baseUrl}/notes`, {
+    fetch(`${config.API_BASE_URL}/notes`, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(newNote),

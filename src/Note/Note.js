@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ApiContext from '../ApiContext.js';
+import config from '../config.js';
 import './Note.css';
+
 
 export default class Note extends React.Component {
   static defaultProps ={
@@ -13,10 +15,9 @@ export default class Note extends React.Component {
 
   handleClickDelete = e => {
     e.preventDefault();
-    const baseUrl = "https://fierce-stream-94043.herokuapp.com/";
     const noteId = this.props.id;
 
-    fetch(`${baseUrl}/notes/${noteId}`, {
+    fetch(`${config.API_BASE_URL}/notes/${noteId}`, {
       method: 'DELETE',
       headers: {'content-type': 'application/json'},
     })
