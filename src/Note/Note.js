@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { format } from 'date-fns';
+//import { format } from 'date-fns';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ApiContext from '../ApiContext.js';
 import config from '../config.js';
+import PropTypes from 'prop-types';
 import './Note.css';
 
 
@@ -20,10 +21,9 @@ export default class Note extends React.Component {
     fetch(`${config.API_BASE_URL}/notes/${noteId}`, {
       method: 'DELETE',
       headers: {'content-type': 'application/json'},
-    })
+    }) 
       .then(res => {
         if (!res.ok) { return res.json().then(e => Promise.reject(e)) }
-        return res.json()
       })
       .then(() => {
         this.context.deleteNote(noteId)
@@ -36,6 +36,8 @@ export default class Note extends React.Component {
 
   render() {
     const { name, id, modified } = this.props;
+
+
     return (
       <div className='Note'>
         <h2 className='Note__title'>
@@ -47,13 +49,18 @@ export default class Note extends React.Component {
           remove
         </button>
         <div className='Note__dates'>
-          <div className='Note__dates-modified'>
-            Modified
-            {' '}
-            <span className='Date'>{format(modified, 'Do MMM YYYY')}</span>
+          <div className='Note__dates-modified'> 
           </div>
         </div>
       </div>
     )
   }
 }
+
+Note.propTypes = {
+  // id: PropTypes.string,
+  name: PropTypes.string,
+  modified: PropTypes.string
+}
+
+//  Modified{' '}<span className='Date'>{format(modified, 'Do MMM YYYY')}</span>

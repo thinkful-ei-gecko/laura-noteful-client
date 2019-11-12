@@ -19,13 +19,13 @@ export default class NotePageMain extends React.Component {
   render() {
     const { notes=[] } = this.context;
     const { noteId } = this.props.match.params;
-    const note = findNote(notes, noteId) || { content: '' };
-
+    const {note_title, note_content, modified } = findNote(notes, parseInt(noteId));
+   
     return (
       <section className='NotePageMain'>
-        <Note id={note.id} name={note.name} modified={note.modified} onDeleteNote={this.handleDeleteNote}/>
+        <Note id={noteId} name={note_title} modified={modified} onDeleteNote={this.handleDeleteNote}/>
         <div className='NotePageMain__content'>
-          {note.content.split(/\n \r|\n/).map((parag, i) =>
+          {note_content.split(/\n \r|\n/).map((parag, i) =>
             <p key={i}>{parag}</p>
           )}
         </div>
