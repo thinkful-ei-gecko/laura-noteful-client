@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import NotefulForm from '../NotefulForm/NotefulForm.js';
 import ApiContext from '../ApiContext.js';
 import config from '../config.js';
@@ -52,6 +51,3 @@ export default class AddFolder extends Component {
   }
 }
 
-AddFolder.propTypes = {
-  value: PropTypes.isRequired
-};

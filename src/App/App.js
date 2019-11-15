@@ -92,9 +92,11 @@ class App extends Component {
             </header>
 
             <main className='App__main'>
+
             <NoteError>
-              {this.renderMainRoutes()}
+            {this.renderMainRoutes()}
             </NoteError>
+            
             </main>
           </div>
         </ApiContext.Provider>
